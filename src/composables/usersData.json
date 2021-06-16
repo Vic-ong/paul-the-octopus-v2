@@ -1,0 +1,244 @@
+[
+  {
+    "name": "Sophia Marker",
+    "attrs": {
+      "hunting": 5,
+      "engineering": 5,
+      "creativity": 1,
+      "medicine": 1,
+      "magic": 1,
+      "charismatic": 2
+    }
+  },
+  {
+    "name": "Leon Heisenberg",
+    "attrs": {
+      "hunting": 1,
+      "engineering": 5,
+      "creativity": 5,
+      "medicine": 3,
+      "magic": 0,
+      "charismatic": 1
+    }
+  },
+  {
+    "name": "Juniper Wong",
+    "attrs": {
+      "hunting": 1,
+      "engineering": 2,
+      "creativity": 2,
+      "medicine": 1,
+      "magic": 5,
+      "charismatic": 4
+    }
+  },
+  {
+    "name": "Märta Patrick",
+    "attrs": {
+      "hunting": 2,
+      "engineering": 2,
+      "creativity": 5,
+      "medicine": 1,
+      "magic": 0,
+      "charismatic": 4
+    }
+  },
+  {
+    "name": "Haruko Krystle",
+    "attrs": {
+      "hunting": 2,
+      "engineering": 5,
+      "creativity": 5,
+      "medicine": 3,
+      "magic": 0,
+      "charismatic": 0 
+    }
+  },
+  {
+    "name": "Rochelle Romilly",
+    "attrs": {
+      "hunting": 3,
+      "engineering": 0,
+      "creativity": 2,
+      "medicine": 3,
+      "magic": 2,
+      "charismatic": 5 
+    }
+  },
+  {
+    "name": "Pace Lilibet",
+    "attrs": {
+      "hunting": 1,
+      "engineering": 4,
+      "creativity": 2,
+      "medicine": 2,
+      "magic": 2,
+      "charismatic": 4 
+    }
+  },
+  {
+    "name": "Erasmo Shaylyn",
+    "attrs": {
+      "hunting": 2,
+      "engineering": 3,
+      "creativity": 3,
+      "medicine": 5,
+      "magic": 2,
+      "charismatic": 0 
+    }
+  },
+  {
+    "name": "Ingvar Auguste",
+    "attrs": {
+      "hunting": 2,
+      "engineering": 2,
+      "creativity": 0,
+      "medicine": 3,
+      "magic": 4,
+      "charismatic": 5 
+    }
+  },
+  {
+    "name": "Louis Hayleigh",
+    "attrs": {
+      "hunting": 1,
+      "engineering": 4,
+      "creativity": 3,
+      "medicine": 1,
+      "magic": 5,
+      "charismatic": 1 
+    }
+  },
+  {
+    "name": "Alexandrea Désirée",
+    "attrs": {
+      "hunting": 1,
+      "engineering": 4,
+      "creativity": 5,
+      "medicine": 1,
+      "magic": 2,
+      "charismatic": 2 
+    }
+  },
+  {
+    "name": "Eveline Nash",
+    "attrs": {
+      "hunting": 4,
+      "engineering": 1,
+      "creativity": 5,
+      "medicine": 4,
+      "magic": 0,
+      "charismatic": 1 
+    }
+  },
+  {
+    "name": "Léo Emmerson",
+    "attrs": {
+      "hunting": 2,
+      "engineering": 1,
+      "creativity": 4,
+      "medicine": 3,
+      "magic": 4,
+      "charismatic": 1
+    }
+  },
+  {
+    "name": "Etna Elna",
+    "attrs": {
+      "hunting": 3,
+      "engineering": 4,
+      "creativity": 2,
+      "medicine": 1,
+      "magic": 1,
+      "charismatic": 4
+    }
+  },
+  {
+    "name": "Gisela Zula",
+    "attrs": {
+      "hunting": 1,
+      "engineering": 5,
+      "creativity": 2,
+      "medicine": 3,
+      "magic": 1,
+      "charismatic": 3
+    }
+  },
+  {
+    "name": "Benjy Calisto",
+    "attrs": {
+      "hunting": 1,
+      "engineering": 2,
+      "creativity": 2,
+      "medicine": 2,
+      "magic": 4,
+      "charismatic": 4
+    }
+  },
+  {
+    "name": "Dani Njord",
+    "attrs": {
+      "hunting": 3,
+      "engineering": 1,
+      "creativity": 3,
+      "medicine": 1,
+      "magic": 5,
+      "charismatic": 2
+    }
+  },
+  {
+    "name": "Sisko Ryley",
+    "attrs": {
+      "hunting": 2,
+      "engineering": 4,
+      "creativity": 4,
+      "medicine": 3,
+      "magic": 0,
+      "charismatic": 2
+    }
+  },
+  {
+    "name": "Charline Frazier",
+    "attrs": {
+      "hunting": 5,
+      "engineering": 0,
+      "creativity": 1,
+      "medicine": 2,
+      "magic": 2,
+      "charismatic": 5
+    }
+  },
+  {
+    "name": "Charles Ruthie",
+    "attrs": {
+      "hunting": 1,
+      "engineering": 1,
+      "creativity": 4,
+      "medicine": 3,
+      "magic": 2,
+      "charismatic": 4
+    }
+  },
+  {
+    "name": "Qiang Deòrsa",
+    "attrs": {
+      "hunting": 1,
+      "engineering": 1,
+      "creativity": 4,
+      "medicine": 4,
+      "magic": 5,
+      "charismatic": 0
+    }
+  },
+  {
+    "name": "Kiera Emilia",
+    "attrs": {
+      "hunting": 3,
+      "engineering": 0,
+      "creativity": 0,
+      "medicine": 5,
+      "magic": 2,
+      "charismatic": 5
+    }
+  }
+]

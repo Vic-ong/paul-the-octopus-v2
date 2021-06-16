@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  #app {
+    @apply font-default text-base lg-above:text-base text-light;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a {
+    @apply text-link;
+    text-decoration: none;
+  }
+  i {
+    @apply flex justify-center items-center;
+  }
+  button {
+    @apply h-10 px-10 shadow-md rounded-md cursor-pointer text-sm bg-primary text-light;
+    @apply duration-150 ease-in-out transform focus:outline-none active:scale-95;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+  input[type='text'] {
+    @apply rounded-md bg-gray-darken;
+  }
+  select {
+    @apply rounded-md bg-gray-darken;
+  }
+
+  /* Typography */
+  .heading {
+    @apply font-heading font-bold text-4xl lg-above:text-5xl;
+  }
+  .heading-2 {
+    @apply font-bold text-xl lg-above:text-2xl;
+  }
+
+  /* Fade transition */
+  .transition-fade-enter-active, .transition-fade-leave-active {
+    transition: opacity .3s ease;
+  }
+  .transition-fade-enter, .transition-fade-leave-to {
+    opacity: 0;
+  }
+
+  /* Bounce transition */
+  .transition-bounce-enter-active {
+    animation: bounce-in .35s;
+  }
+  .transition-bounce-leave-active {
+    animation: bounce-in .2s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
