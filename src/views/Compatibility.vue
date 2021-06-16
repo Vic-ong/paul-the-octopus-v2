@@ -127,7 +127,7 @@
         {
           key: 'wilderness',
           img: tent,
-          title: 'Best chance at surviving in the wildernes',
+          title: 'Best chance at surviving in the wilderness',
           desc: 'The group should have the right skillset and that they can learn from or teach each other to improve the group\'s survivability. The key skills taken into considerations for wilderness survival are hunting, engineering, creativity and medicine.',
           model: 'Cosine Similarity',
         },
