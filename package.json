@@ -6,7 +6,8 @@
     "lint:fix": "eslint --ext .ts,vue --ignore-path .gitignore . --fix",
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "deploy": "pnpm build && firebase deploy --only hosting:paul-the-octopus-v2"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.3.3",
