@@ -6,6 +6,7 @@ import { User } from './types';
 import usersData from './usersData.json';
 
 enum State {
+  Points = 'points',
   User = 'user',
   Users = 'users',
   Scores = 'scores',
@@ -21,6 +22,11 @@ interface StateObject {
 }
 
 const state = reactive<StateObject>({
+  [State.Points]: {
+    loading: false,
+    error: false,
+    data: 15,
+  },
   [State.User]: {
     loading: false,
     error: false,
@@ -39,6 +45,7 @@ const state = reactive<StateObject>({
 });
 
 export const useStore = () => {
+  const points: DataState<number> = state[State.Points];
   const user: DataState<User> = state[State.User];
   const users: DataState<User[]> = state[State.Users];
   const scores: DataState<CompatibilityResult> = state[State.Scores];
@@ -69,6 +76,10 @@ export const useStore = () => {
     }
   };
 
+  const setPoints = (param: number) => {
+    setData(State.Points, param);
+  };
+
   const createUser = (param: User) => {
     const stateKey = State.User;
     executeAction(stateKey, () => {
@@ -88,10 +99,12 @@ export const useStore = () => {
 
   return {
     // getters
+    points,
     user,
     users,
     scores,
     // actions
+    setPoints,
     createUser,
     generateScores,
   };

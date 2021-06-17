@@ -2,14 +2,20 @@
   <div class="flex justify-center">
     <div class="border-2 border-gray-darken rounded-md p-5 flex justify-center space-x-20">
       <div
-        v-for="item in items"
-        :key="item.title"
-        class="text-left"
+        v-for="(_, index) in 3"
+        :key="data[index].user.name"
+        class="text-left space-y-2"
       >
-        <div class="mb-2">
-          {{ item.title }}
+        <div class="text-center text-primary">
+          <span v-show="index === 0">⭐️</span>
+          {{ formatScore(data[index].score) }}
         </div>
-        <SkillsetView :data="item.data" />
+      
+        <div class="font-bold">
+          {{ data[index].user.name }}
+        </div>
+
+        <SkillsetView :data="data[index].user.attrs" />
       </div>
     </div>
   </div>
@@ -17,9 +23,7 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue';
-  import { useStore } from '@/composables/store';
   import { Attr } from '@/composables/types';
-  import { CompatibilityObject } from '@/composables/compatibility';
   import SkillsetView from './SkillsetView.vue';
 
   export default defineComponent({
@@ -33,29 +37,13 @@
         required: true,
       },
     },
-    setup(props) {
-      const { user } = useStore();
+    setup() {
       const keys = Object.values(Attr);
-      const score = props.data as CompatibilityObject;
-
-      const items = [
-        {
-          title: 'Group avg.',
-          data: score.avgAttrs,
-        },
-        {
-          title: 'Your skills',
-          data: user.data.attrs,
-        },
-        {
-          title: 'Partner\'s skills',
-          data: score.user.attrs,
-        },
-      ];
+      const formatScore = (score: number) => `${(score * 100).toFixed(2)}%`;
       
       return {
         keys,
-        items,
+        formatScore,
       };
     },
   });

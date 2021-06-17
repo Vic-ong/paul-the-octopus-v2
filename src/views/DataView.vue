@@ -5,8 +5,8 @@
   >
     <div>
       <div class="w-full h-20 px-10 flex justify-between items-center bg-dark">
-        <router-link :to="{ name: 'new-character' }">
-          Reset
+        <router-link :to="{ name: 'home' }">
+          Home
         </router-link>
 
         <div class="text-center heading">

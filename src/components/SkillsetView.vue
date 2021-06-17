@@ -6,7 +6,7 @@
     >
       <div class="flex justify-between">
         <div>{{ key }}:</div>
-        <div class="ml-2 text-primary">
+        <div class="ml-3">
           {{ data[key] }}
         </div>
       </div>

@@ -36,34 +36,40 @@
       <div>
         <div class="heading-2">
           Distribute
-          <span class="text-primary">{{ points }}</span>
+          <span class="text-primary">{{ points.data }}</span>
           points to the skills of your choice.
         </div>
         <div class="mb-5 text-sm italic">
           Each skill proficiency ranges from 0 to 5 (5 being the most proficient)
         </div>
 
-        <div class="grid grid-cols-3 grid-rows-2 gap-4">
-          <div
-            v-for="item in attributes"
-            :key="item.key"
-            class="flex justify-center items-center space-x-2"
-          >
-            <div>
-              {{ item.name }}:
-              <span class="text-primary">{{ input.attrs[item.key] }}</span>
-            </div>
+        <div class="flex justify-center">
+          <div class="space-y-2">
             <div
-              class="h-6 w-6 rounded-full flex justify-center items-center bg-gray-darken cursor-pointer"
-              @click="addPoint(item.key)"
+              v-for="item in attributes"
+              :key="item.key"
+              class="grid grid-cols-7"
             >
-              <i class="fi-sr-arrow-small-up text-dark" />
-            </div>
-            <div
-              class="h-6 w-6 rounded-full flex justify-center items-center bg-gray-darken cursor-pointer"
-              @click="minusPoint(item.key)"
-            >
-              <i class="fi-sr-arrow-small-down text-dark" />
+              <div class="col-span-3 text-left">
+                {{ item.name }}:
+              </div>
+              <div class="col-span-2 text-primary">
+                {{ input.attrs[item.key] }}
+              </div>
+              <div class="col-span-2 flex space-x-1">
+                <div
+                  class="h-6 w-6 rounded-full flex justify-center items-center bg-gray-darken cursor-pointer"
+                  @click="addPoint(item.key)"
+                >
+                  <i class="fi-sr-arrow-small-up text-dark" />
+                </div>
+                <div
+                  class="h-6 w-6 rounded-full flex justify-center items-center bg-gray-darken cursor-pointer"
+                  @click="minusPoint(item.key)"
+                >
+                  <i class="fi-sr-arrow-small-down text-dark" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -98,9 +104,13 @@
     name: 'CharacterCreation',
     setup() {
       const router = useRouter();
-      const { createUser } = useStore();
+      const { points, user, setPoints, createUser } = useStore();
+      
+      if (user.data) {
+        router.push({ name: 'compatibility' });
+      }
+
       const error = ref('');
-      const points = ref(15);
       const input = reactive({
         name: '',
         attrs: {
@@ -149,16 +159,16 @@
       };
 
       const addPoint = (key: Attr) => {
-        if (input.attrs[key] < 5 && points.value > 0) {
+        if (input.attrs[key] < 5 && points.data > 0) {
           input.attrs[key] += 1;
-          points.value -= 1;
+          setPoints(points.data - 1);
         }
       };
 
       const minusPoint = (key: Attr) => {
-        if (input.attrs[key] > 0 && points.value < 15) {
+        if (input.attrs[key] > 0 && points.data < 15) {
           input.attrs[key] -= 1;
-          points.value += 1;
+          setPoints(points.data + 1);
         }
       };
 
@@ -166,7 +176,7 @@
         error.value = '';
         if (!input.name) {
           error.value = 'Please input your name.';
-        } else if (points.value !== 0) {
+        } else if (points.data !== 0) {
           error.value = 'Please use all of the available skill points.';
         } else {
           await createUser(input);
