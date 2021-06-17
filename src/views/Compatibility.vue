@@ -27,9 +27,9 @@
           <div class="text-left">
             We're happy to have you joining this group of wonderful people with diversed skillset! 🎉 Now, let's see who you could team up with within
             <router-link :to="{ name: 'data' }">
-              this group of people
+              this list of users
             </router-link>
-            to boost your chances of winning in various situations while leaving room for others to succeed too.
+            to boost your chances of winning in various situations while leaving room for others to find success too.
           </div>
 
           <div>

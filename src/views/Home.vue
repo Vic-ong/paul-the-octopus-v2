@@ -43,14 +43,42 @@
       id="about"
       class="min-h-screen flex items-center justify-center"
     >
-      <div class="flex flex-col items-center space-y-20">
+      <div class="flex flex-col items-center space-y-12">
         <div class="max-w-3xl space-y-3">
           <div class="heading text-center">
             About
           </div>
           <div class="text-left">
             This project is inspired by a project I worked on at Hawaii to research team-forming models based on individuals' skillset and personal goals.
-            Here, I made a simplified version of it to explore utilizations in game development.
+            Here, I wanted to experiment with similarity computations to explore its utilizations in game development.
+          </div>
+        </div>
+
+        <div class="max-w-3xl space-y-3">
+          <div class="heading text-center">
+            Score Calculations
+          </div>
+          <div class="text-left">
+            <div>
+              (1) I compute the
+              <a
+                href="https://www.cut-the-knot.org/pythagoras/DistanceFormula.shtml"
+                target="_blank"
+              >
+                Euclidean distance (L2-norm distance)
+              </a>
+              to find nearby vectors adjacent to the target.
+            </div>
+            <div>
+              (2) I compute
+              <a
+                href="https://www.geeksforgeeks.org/cosine-similarity/"
+                target="_blank"
+              >
+                cosine similarity
+              </a>
+              to find vector similarities in the same general direction from the origin.
+            </div>
           </div>
         </div>
 
