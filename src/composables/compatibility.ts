@@ -121,6 +121,6 @@ export const calcCompatibility = (target: User, users: User[]): CompatibilityRes
   return {
     similarlevel: computeEuclideanDistance(target, users),
     wilderness: computeCosineSimilarity(target, users, [Attr.Hunt, Attr.Eng, Attr.Cre, Attr.Med]),
-    harrypotter: computeCosineSimilarity(target, users, [Attr.Magic, Attr.Charm, Attr.Cre]),
+    harrypotter: computeCosineSimilarity(target, users, [Attr.Magic, Attr.Med, Attr.Cre]),
   };
 };

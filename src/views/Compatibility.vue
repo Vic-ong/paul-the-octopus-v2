@@ -66,13 +66,14 @@
                 {{ index + 1 }}. {{ item.title }}
               </div>
 
-              <div class="mt-5 flex flex-col space-y-2 max-w-3xl">
-                <span>Assumptions: {{ item.desc }}</span>
-                <span>Model used: {{ item.model }}</span>
+              <div class="mt-5 max-w-3xl space-y-2">
+                <div class="text-left">
+                  {{ item.desc }}
+                </div>
               </div>
 
               <div class="mt-10">
-                Recommend pairing with
+                Recommend pairing:
                 <span class="text-primary">
                   {{ scores.data[item.key][0].user.name }}
                 </span>
@@ -135,22 +136,19 @@
           key: 'similarlevel',
           img: intersection,
           title: 'Finding partner(s) who has similar skill levels',
-          desc: 'The pair should have skillset summed up to be closest to each other. Thus, all skills are considered.',
-          model: 'Euclidean Distance',
+          desc: 'The pair should have an overall similar skill levels. For instance, John is only good at A and B and Jane is only good at C and D. In this case, they are both considered having similar skill levels.',
         },
         {
           key: 'wilderness',
           img: tent,
           title: 'Best chance at surviving in the wilderness',
-          desc: 'The group should have the right skillset and that they can learn from or teach each other to improve the group\'s survivability. The key skills taken into considerations for wilderness survival are hunting, engineering, creativity and medicine.',
-          model: 'Cosine Similarity',
+          desc: 'The group should have the right skillset that they can learn from or teach each other to improve the group\'s survivability. The key skills taken into considerations for wilderness survival are hunting, engineering, creativity and medicine.',
         },
         {
           key: 'harrypotter',
           img: wizard,
           title: 'Helping Harry Potter to defeat Voldemort',
-          desc: 'The group should have a combination of proficiency in magic, creativity, and charismatic skills.',
-          model: 'Maximize Sum of Magnitude',
+          desc: 'The group should be proficient in magic, creativity, and medicine skills to properly assist Harry as he embarks on this challenging mission.',
         },
       ];
 
