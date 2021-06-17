@@ -12,9 +12,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      default: ['Padauk', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
-      // default: ['EB Garamond', 'Garamond', 'Georgia', 'serif'],
-      heading: ['Niconne', 'Comic Sans MS', 'cursive'],
+      default: ['Rubik', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
+      heading: ['EB Garamond', 'Garamond', 'Georgia', 'serif'],
     },
     colors: {
       // font color

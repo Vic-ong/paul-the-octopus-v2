@@ -33,7 +33,7 @@
     @apply font-heading font-bold text-4xl lg-above:text-5xl;
   }
   .heading-2 {
-    @apply font-bold text-xl lg-above:text-2xl;
+    @apply text-xl lg-above:text-2xl;
   }
 
   /* Fade transition */
