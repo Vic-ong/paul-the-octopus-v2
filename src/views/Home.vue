@@ -33,7 +33,7 @@
             class="p-1 cursor-pointer flex items-center justify-center"
             @click="scrollIntoNextView"
           >
-            <i class="fi-sr-arrow-small-down text-2xl animate-bounce" />
+            <IconArrowDown class="h-6 w-6 animate-bounce fill-current text-light" />
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
             About
           </div>
           <div>
-            A web app that calculates your virtual character's compatibility with the others and recommends the top 3 team pairings so that your probability of completing a particular mission is favorable. The compatibility scoring is computed by determining the similarities between 2 characters. In this project, I wanted to explore how
+            This app calculates your virtual character's compatibility with the others and recommends the top 3 team pairings so that your probability of completing a particular mission is favorable. The compatibility scoring is computed by determining the similarities between 2 characters. In this project, I wanted to explore how
             <a
               href="https://en.wikipedia.org/wiki/Lp_space#Statistics"
               target="_blank"
@@ -105,12 +105,16 @@
   import { defineComponent } from 'vue';
   import { useRouter } from 'vue-router';
   import logo from '@/assets/logo.png';
+  import IconArrowDown from '@/components/Icons/IconArrowDown.vue';
   import IconGithub from '@/components/Icons/IconGithub.vue';
   import IconLinkedIn from '@/components/Icons/IconLinkedIn.vue';
   import IconInstagram from '@/components/Icons/IconInstagram.vue';
 
   export default defineComponent({
     name: 'Home',
+    components: {
+      IconArrowDown,
+    },
     setup() {
       const router = useRouter();
 

@@ -61,13 +61,13 @@
                   class="h-6 w-6 rounded-full flex justify-center items-center bg-gray-darken cursor-pointer"
                   @click="addPoint(item.key)"
                 >
-                  <i class="fi-sr-arrow-small-up text-dark" />
+                  <IconArrowUp class="h-4 w-4 fill-current text-dark" />
                 </div>
                 <div
                   class="h-6 w-6 rounded-full flex justify-center items-center bg-gray-darken cursor-pointer"
                   @click="minusPoint(item.key)"
                 >
-                  <i class="fi-sr-arrow-small-down text-dark" />
+                  <IconArrowDown class="h-4 w-4 fill-current text-dark" />
                 </div>
               </div>
             </div>
@@ -99,9 +99,15 @@
   import { useRouter } from 'vue-router';
   import { useStore } from '@/composables/store';
   import { Attr } from '@/composables/types';
+  import IconArrowUp from '@/components/Icons/IconArrowUp.vue';
+  import IconArrowDown from '@/components/Icons/IconArrowDown.vue';
 
   export default defineComponent({
     name: 'CharacterCreation',
+    components: {
+      IconArrowUp,
+      IconArrowDown,
+    },
     setup() {
       const router = useRouter();
       const { points, user, setPoints, createUser } = useStore();

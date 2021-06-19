@@ -38,7 +38,7 @@
               class="p-1 cursor-pointer flex items-center justify-center"
               @click="scrollIntoNextView(0)"
             >
-              <i class="fi-sr-arrow-small-down text-2xl animate-bounce" />
+              <IconArrowDown class="h-6 w-6 animate-bounce fill-current text-light" />
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@
                   class="p-1 cursor-pointer flex items-center justify-center"
                   @click="scrollIntoNextView(index + 1)"
                 >
-                  <i class="fi-sr-arrow-small-down text-2xl animate-bounce" />
+                  <IconArrowDown class="h-6 w-6 animate-bounce fill-current text-light" />
                 </div>
               </div>
             </div>
@@ -108,6 +108,7 @@
   import { useRouter } from 'vue-router';
   import { useStore } from '@/composables/store';
   import { Attr } from '@/composables/types';
+  import IconArrowDown from '@/components/Icons/IconArrowDown.vue';
   import Scores from '@/components/Scores.vue';
   import UserPanel from '@/components/UserPanel.vue';
   import tent from '@/assets/tent.png';
@@ -117,15 +118,19 @@
   export default defineComponent({
     name: 'Compatibility',
     components: {
+      IconArrowDown,
       Scores,
       UserPanel,
     },
     setup() {
       const router = useRouter();
-      const { user, scores } = useStore();
+      const { user, scores, generateScores } = useStore();
 
       if (!user.data) {
         router.push({ name: 'new-character' });
+      }
+      if (!scores.data) {
+        generateScores();
       }
 
       const loading = computed(() => !user.data || user.loading || scores.loading);
@@ -136,13 +141,13 @@
           key: 'similarlevel',
           img: intersection,
           title: 'Finding partner(s) who has similar skill levels',
-          desc: 'The pair should have an overall similar skill levels. For instance, John is only good at A and B and Jane is only good at C and D. In this case, they are both considered having similar skill levels.',
+          desc: 'The pair should have an overall similar skill levels. For instance, John is only good at A and B and Jane is only good at C and D. In this case, they\'re considered similar.',
         },
         {
           key: 'wilderness',
           img: tent,
           title: 'Best chance at surviving in the wilderness',
-          desc: 'The group should have the right skillset that they can learn from or teach each other to improve the group\'s survivability. The key skills taken into considerations for wilderness survival are hunting, engineering, creativity and medicine.',
+          desc: 'The group should have the right skill set that they can learn from or teach each other to improve the group\'s survivability. The key skills taken into considerations for wilderness survival are hunting, engineering, creativity and medicine.',
         },
         {
           key: 'harrypotter',

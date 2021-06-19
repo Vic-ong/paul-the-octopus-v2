@@ -11,8 +11,6 @@ export interface CompatibilityResult {
   [key: string]: CompatibilityObject[];
 }
 
-const THRESHOLD = 2.5;
-const HIGH_THRESHOLD = 4;
 const DEFAULT_KEYS = Object.values(Attr);
 
 const sortScoresDesc = (a: CompatibilityObject, b: CompatibilityObject) => {
@@ -21,34 +19,19 @@ const sortScoresDesc = (a: CompatibilityObject, b: CompatibilityObject) => {
   return 0;
 };
 
+const inverseScore = (x: number) => 1 - x;
+
 const computeCosineSimilarity = (
   target: User,
   users: User[],
   keys: string[] = DEFAULT_KEYS,
 ) => {
-  let filteredUsers;
-  filteredUsers = [...users].filter((user) => {
-    return keys.every((key) => {
-      if (target.attrs[key] > THRESHOLD) return user.attrs[key] < THRESHOLD;
-      return user.attrs[key] > THRESHOLD;
-    });
-  });
-
-  if (filteredUsers.length < 3) {
-    filteredUsers = [...users].filter((user) => {
-      const aboveAvgAttrs = keys.every((key) => user.attrs[key] > THRESHOLD);
-      const maxAttrsCount = keys.reduce((count, key) => {
-        if (user.attrs[key] >= HIGH_THRESHOLD) count += 1;
-        return count;
-      }, 0);
-      return aboveAvgAttrs || maxAttrsCount >= (keys.length / 2);
-    });
-  }
-
-  const result = (filteredUsers.length < 3 ? users : filteredUsers).map((user) => {
+  const result = users.map((user) => {
     const cosTheta = cosineSimilarity(target.attrs, user.attrs, keys);
     // normalize to percentage score
-    const score = (cosTheta + 1) / 2;
+    const similarityScore = inverseScore(cosTheta) * 0.8;
+    const skillProficiencyScore = keys.reduce((acc, key) => acc += user.attrs[key], 0) / (keys.length * 5) * 0.2;
+    const score = similarityScore + skillProficiencyScore;
     return { user, score };
   });
   return result.sort(sortScoresDesc);

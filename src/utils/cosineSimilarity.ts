@@ -20,7 +20,7 @@ const vectorMagnitude = (v: UserAttributes, keys: string[]): number => {
  * Calculates the consine similarity between 2 vectors
  * @param a
  * @param b
- * @returns result [-1 to 1], 1 being the highest similarity
+ * @returns result [0 to 1], 1 being the highest similarity
  */
 export const cosineSimilarity = (a: UserAttributes, b: UserAttributes, keys: string[]): number => {
   const dotResult = dotProduct(a, b, keys);

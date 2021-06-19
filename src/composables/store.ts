@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { reactive } from 'vue';
 import { calcCompatibility, CompatibilityResult } from './compatibility';
-import { User } from './types';
+import { User, Attr } from './types';
 import usersData from './usersData.json';
 
 enum State {
@@ -32,6 +32,21 @@ const state = reactive<StateObject>({
     error: false,
     data: null,
   },
+  // [State.User]: {
+  //   loading: false,
+  //   error: false,
+  //   data: {
+  //     name: 'Jackson Osborn',
+  //     attrs: {
+  //       [Attr.Charm]: 4,
+  //       [Attr.Cre]: 3,
+  //       [Attr.Eng]: 1,
+  //       [Attr.Hunt]: 0,
+  //       [Attr.Magic]: 5,
+  //       [Attr.Med]: 2,
+  //     },
+  //   },
+  // },
   [State.Users]: {
     loading: false,
     error: false,
