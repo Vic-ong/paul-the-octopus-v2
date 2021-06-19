@@ -1,4 +1,6 @@
-import { User, UserAttributes, Attr } from '@/composables/types';
+import { User, Attr } from '@/composables/types';
+import { lpSpace } from '@/utils/lpSpace';
+import { cosineSimilarity } from '@/utils/cosineSimilarity';
 
 export interface CompatibilityObject {
   user: User;
@@ -11,24 +13,7 @@ export interface CompatibilityResult {
 
 const THRESHOLD = 2.5;
 const HIGH_THRESHOLD = 4;
-
-const defaultKeys = Object.values(Attr);
-
-const dotProduct = (a: UserAttributes, b: UserAttributes, keys: string[]) => {
-  let result = 0;
-  keys.forEach((key) => {
-    result += a[key] * b[key];
-  });
-  return result;
-};
-
-const vectorMagnitude = (v: UserAttributes, keys: string[]): number => {
-  let result = 0;
-  keys.forEach((key) => {
-    result += Math.pow(v[key], 2);
-  });
-  return Math.sqrt(result);
-};
+const DEFAULT_KEYS = Object.values(Attr);
 
 const sortScoresDesc = (a: CompatibilityObject, b: CompatibilityObject) => {
   if (a.score < b.score) return 1;
@@ -36,36 +21,10 @@ const sortScoresDesc = (a: CompatibilityObject, b: CompatibilityObject) => {
   return 0;
 };
 
-/**
- * Calculates the euclidean distance (L2-norm) between 2 vectors
- * @param a 
- * @param b 
- * @returns result [>=0], shortest distance being the highest similarity
- */
- const euclideanDistance = (a: UserAttributes, b: UserAttributes, keys: string[]): number => {
-  let result = 0;
-  keys.forEach((key) => {
-    result += Math.pow(a[key] - b[key], 2);
-  });
-  return Math.sqrt(result);
-};
-
-/**
- * Calculates the consine similarity between 2 vectors
- * @param a 
- * @param b 
- * @returns result [-1 to 1], 1 being the highest similarity
- */
-const cosineSimilarity = (a: UserAttributes, b: UserAttributes, keys: string[]): number => {
-  const dotResult = dotProduct(a, b, keys);
-  const magnitudeResult = vectorMagnitude(a, keys) * vectorMagnitude(b, keys);
-  return magnitudeResult === 0 ? 0 : dotResult / magnitudeResult;
-};
-
 const computeCosineSimilarity = (
   target: User,
   users: User[],
-  keys: string[] = defaultKeys,
+  keys: string[] = DEFAULT_KEYS,
 ) => {
   let filteredUsers;
   filteredUsers = [...users].filter((user) => {
@@ -95,18 +54,19 @@ const computeCosineSimilarity = (
   return result.sort(sortScoresDesc);
 };
 
-const computeEuclideanDistance = (
+const computeLpSpace = (
   target: User,
   users: User[],
-  keys: string[] = defaultKeys,
+  keys: string[] = DEFAULT_KEYS,
 ) => {
   const distances: number[] = [];
 
   users.forEach((user) => {
-    const distance = euclideanDistance(target.attrs, user.attrs, keys);
+    const distance = lpSpace(target.attrs, user.attrs, keys);
     distances.push(distance);
   });
 
+  // normalize to percentage score
   const maxDistance = Math.max(...distances);
   const result = distances.map((dist, index) => {
     return {
@@ -119,7 +79,7 @@ const computeEuclideanDistance = (
 
 export const calcCompatibility = (target: User, users: User[]): CompatibilityResult => {
   return {
-    similarlevel: computeEuclideanDistance(target, users),
+    similarlevel: computeLpSpace(target, users),
     wilderness: computeCosineSimilarity(target, users, [Attr.Hunt, Attr.Eng, Attr.Cre, Attr.Med]),
     harrypotter: computeCosineSimilarity(target, users, [Attr.Magic, Attr.Med, Attr.Cre]),
   };
