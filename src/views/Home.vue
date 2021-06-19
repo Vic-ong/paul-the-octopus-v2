@@ -48,37 +48,22 @@
           <div class="heading text-center">
             About
           </div>
-          <div class="text-left">
-            This project is inspired by a project I worked on at Hawaii to research team-forming models based on individuals' skillset and personal goals.
-            Here, I wanted to experiment with similarity computations to explore its utilizations in game development.
-          </div>
-        </div>
-
-        <div class="max-w-3xl space-y-3">
-          <div class="heading text-center">
-            Score Calculations
-          </div>
-          <div class="text-left">
-            <div>
-              (1) I compute the
-              <a
-                href="https://www.cut-the-knot.org/pythagoras/DistanceFormula.shtml"
-                target="_blank"
-              >
-                Euclidean distance (L2-norm distance)
-              </a>
-              to find nearby vectors adjacent to the target.
-            </div>
-            <div>
-              (2) I compute
-              <a
-                href="https://www.geeksforgeeks.org/cosine-similarity/"
-                target="_blank"
-              >
-                cosine similarity
-              </a>
-              to find vector similarities in the same general direction from the origin.
-            </div>
+          <div>
+            A web app that calculates your virtual character's compatibility with the others and recommends the top 3 team pairings so that your probability of completing a particular mission is favorable. The compatibility scoring is computed by determining the similarities between 2 characters. In this project, I wanted to explore how
+            <a
+              href="https://en.wikipedia.org/wiki/Lp_space#Statistics"
+              target="_blank"
+            >
+              Lp space
+            </a>
+            and
+            <a
+              href="https://en.wikipedia.org/wiki/Cosine_similarity"
+              target="_blank"
+            >
+              cosine similarity
+            </a>
+            can be applied in game developments.
           </div>
         </div>
 
@@ -87,15 +72,15 @@
             Fun Fact
           </div>
           <div class="text-left">
-            The name "Paul The Octopus" is a tribute to an
+            The name "Paul The Octopus" is a tribute to a
             <a
               href="https://en.wikipedia.org/wiki/Paul_the_Octopus"
               target="_blank"
             >
-              actual octopus.
+              real-life celebrity octopus
             </a>
-            In the football/soccer domain, Paul has correctly predicted the winning teams in 12 out of 14 matches (85.7% accuracy)!
-            That's right folks, Paul may have been a brilliant analyst in disguise!
+            who has correctly predicted 4 out of 6 outcomes of UEFA Euro 2008 and all of the outcomes of FIFA World Cup 2010!
+            That's right folks, Paul may have been a brilliant analyst!
           </div>
         </div>
 
