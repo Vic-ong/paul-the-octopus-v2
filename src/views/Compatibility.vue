@@ -4,22 +4,22 @@
     :error="error"
   >
     <div id="compatibility">
-      <div class="fixed z-10 w-full h-20 px-10 flex justify-between items-center bg-dark">
-        <router-link :to="{ name: 'home' }">
-          Home
-        </router-link>
+      <Header fixed>
+        Compatibility Analysis
+        <template #left>
+          <router-link :to="{ name: 'home' }">
+            Home
+          </router-link>
+        </template>
+        <template #right>
+          <router-link :to="{ name: 'data' }">
+            See Data
+          </router-link>
+        </template>
+      </Header>
 
-        <div class="text-center heading">
-          Compatibility Analysis
-        </div>
-
-        <router-link :to="{ name: 'data' }">
-          See Data
-        </router-link>
-      </div>
-
-      <div class="min-h-screen flex justify-center items-center text-center">
-        <div class="max-w-3xl space-y-10">
+      <div class="min-h-screen flex justify-center items-center text-center px-5">
+        <div class="md-above:max-w-3xl space-y-10">
           <div class="heading-2">
             Welcome, {{ user.data.name }}!
           </div>
@@ -45,7 +45,10 @@
       </div>
 
       <div class="relative flex flex-col items-center text-center">
-        <div class="sticky top-40 mr-auto ml-10">
+        <div
+          v-if="view.mdAndAbove"
+          class="sticky top-40 mr-auto ml-10"
+        >
           <UserPanel />
         </div>
 
@@ -53,7 +56,7 @@
           v-for="(item, index) in items"
           :id="item.key"
           :key="item.key"
-          class="h-screen"
+          class="sm-below:min-h-screen md-above:h-screen px-5 sm-below:py-16"
         >
           <div class="min-h-full flex items-center justify-center">
             <div class="flex flex-col items-center">
@@ -66,7 +69,7 @@
                 {{ index + 1 }}. {{ item.title }}
               </div>
 
-              <div class="mt-5 max-w-3xl space-y-2">
+              <div class="mt-5 md-above:max-w-3xl space-y-2">
                 <div class="text-left">
                   {{ item.desc }}
                 </div>
@@ -106,8 +109,10 @@
 <script lang="ts">
   import { defineComponent, computed } from 'vue';
   import { useRouter } from 'vue-router';
+  import { useBreakpoints } from '@/composables/breakpoints';
   import { useStore } from '@/composables/store';
   import { Attr } from '@/composables/types';
+  import Header from '@/components/Header.vue';
   import IconArrowDown from '@/components/Icons/IconArrowDown.vue';
   import Scores from '@/components/Scores.vue';
   import UserPanel from '@/components/UserPanel.vue';
@@ -118,12 +123,14 @@
   export default defineComponent({
     name: 'Compatibility',
     components: {
+      Header,
       IconArrowDown,
       Scores,
       UserPanel,
     },
     setup() {
       const router = useRouter();
+      const view  = useBreakpoints();
       const { user, scores, generateScores } = useStore();
 
       if (!user.data) {
@@ -167,6 +174,7 @@
       return {
         loading,
         error,
+        view,
         Attr,
         items,
         user,

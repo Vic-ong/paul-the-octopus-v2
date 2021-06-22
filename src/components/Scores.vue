@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <div class="border-2 border-gray-darken rounded-md p-5 flex justify-center space-x-20">
+    <div class="flex sm-below:flex-col sm-below:items-center justify-center sm-below:p-7 md-above:p-5 sm-below:space-y-10 md-above:space-x-20 border-2 rounded-md border-gray-darken">
       <div
         v-for="(_, index) in 3"
         :key="data[index].user.name"

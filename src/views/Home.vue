@@ -43,8 +43,8 @@
       id="about"
       class="min-h-screen flex items-center justify-center"
     >
-      <div class="flex flex-col items-center space-y-12">
-        <div class="max-w-3xl space-y-3">
+      <div class="flex flex-col items-center space-y-12 sm-below:px-5 md:px-10">
+        <div class="lg-above:max-w-3xl space-y-3">
           <div class="heading text-center">
             About
           </div>
@@ -67,7 +67,7 @@
           </div>
         </div>
 
-        <div class="max-w-3xl space-y-3">
+        <div class="lg-above:max-w-3xl space-y-3">
           <div class="heading text-center">
             Fun Fact
           </div>

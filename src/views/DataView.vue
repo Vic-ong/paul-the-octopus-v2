@@ -4,22 +4,22 @@
     :error="error"
   >
     <div>
-      <div class="w-full h-20 px-10 flex justify-between items-center bg-dark">
-        <router-link :to="{ name: 'home' }">
-          Home
-        </router-link>
+      <Header fixed>
+        Data
+        <template #left>
+          <router-link :to="{ name: 'home' }">
+            Home
+          </router-link>
+        </template>
+        <template #right>
+          <router-link :to="{ name: 'compatibility' }">
+            See Scores
+          </router-link>
+        </template>
+      </Header>
 
-        <div class="text-center heading">
-          Data
-        </div>
-
-        <router-link :to="{ name: 'compatibility' }">
-          See Scores
-        </router-link>
-      </div>
-
-      <div class="py-10 flex justify-center items-center">
-        <div class="grid grid-cols-4 gap-12">
+      <div class="px-5 py-24 flex justify-center items-center">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg-above:grid-cols-4 gap-4 md-above:gap-12">
           <div
             v-if="user.data"
             class="bg-gray-darken p-5"
@@ -48,11 +48,13 @@
 <script lang="ts">
   import { defineComponent, computed } from 'vue';
   import { useStore } from '@/composables/store';
+  import Header from '@/components/Header.vue';
   import SkillsetView from '@/components/SkillsetView.vue';
 
   export default defineComponent({
     name: 'DataView',
     components: {
+      Header,
       SkillsetView,
     },
     setup() {

@@ -1,39 +1,36 @@
 <template>
   <div class="space-y-10 text-center">
-    <div class="w-full h-20 px-10 flex justify-between items-center bg-dark">
-      <router-link :to="{ name: 'home' }">
-        Home
-      </router-link>
-
-      <div class="text-center heading">
-        Create your character!
-      </div>
-
-      <router-link :to="{ name: 'data' }">
-        See Data
-      </router-link>
-    </div>
+    <Header>
+      Create your character!
+      <template #left>
+        <router-link :to="{ name: 'home' }">
+          Home
+        </router-link>
+      </template>
+      <template #right>
+        <router-link :to="{ name: 'data' }">
+          See Data
+        </router-link>
+      </template>
+    </Header>
 
     <div class="flex flex-col items-center space-y-14">
       <div>
         <div class="heading-2 mb-1">
           Name
         </div>
-        <div class="flex">
+        <div class="sm-below:space-y-3 md-above:flex md-above:space-x-3">
           <input
             v-model="input.name"
             type="text"
           >
-          <button
-            class="ml-3"
-            @click="generateName"
-          >
+          <button @click="generateName">
             Generate Name
           </button>
         </div>
       </div>
 
-      <div>
+      <div class="px-5">
         <div class="heading-2">
           Distribute
           <span class="text-primary">{{ points.data }}</span>
@@ -99,12 +96,14 @@
   import { useRouter } from 'vue-router';
   import { useStore } from '@/composables/store';
   import { Attr } from '@/composables/types';
+  import Header from '@/components/Header.vue';
   import IconArrowUp from '@/components/Icons/IconArrowUp.vue';
   import IconArrowDown from '@/components/Icons/IconArrowDown.vue';
 
   export default defineComponent({
     name: 'CharacterCreation',
     components: {
+      Header,
       IconArrowUp,
       IconArrowDown,
     },
