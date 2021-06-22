@@ -3,17 +3,17 @@
     <div class="min-h-screen flex items-center justify-center">
       <div class="flex flex-col justify-center items-center text-center space-y-24">
         <div>
-          <div class="relative font-heading font-bold text-6xl text-primary">
+          <div class="flex justify-center">
+            <StickerOctopus
+              class="h-32 w-32 animate-logo"
+              interactive
+            />
+          </div>
+          <div class="font-heading font-bold text-5xl text-light">
             Paul the Octopus
-            <div class="absolute -top-3 left-1">
-              <img
-                :src="logo"
-                class="h-7 animate-logo"
-              >
-            </div>
           </div>
 
-          <div class="mt-7">
+          <div class="mt-3 text-gray-darken">
             Calculates your character compatibility
           </div>
         </div>
@@ -109,11 +109,13 @@
   import IconGithub from '@/components/Icons/IconGithub.vue';
   import IconLinkedIn from '@/components/Icons/IconLinkedIn.vue';
   import IconInstagram from '@/components/Icons/IconInstagram.vue';
+  import StickerOctopus from '@/components/Logo/StickerOctopus.vue';
 
   export default defineComponent({
     name: 'Home',
     components: {
       IconArrowDown,
+      StickerOctopus,
     },
     setup() {
       const router = useRouter();
@@ -153,13 +155,13 @@
 <style scoped>
 @keyframes rotate-logo {
   from {
-    transform: rotate(3deg);
+    transform: rotate(-5deg) translateY(-15px);
   }
   to {
-    transform: rotate(20deg);
+    transform: rotate(5deg) translateY(0);;
   }
 }
 .animate-logo {
-  animation: rotate-logo 0.8s cubic-bezier(0.8, 0, 1, 1) infinite alternate;
+  animation: rotate-logo 1s cubic-bezier(0.8, 0.3, 1, 1.2) infinite alternate;
 }
 </style>

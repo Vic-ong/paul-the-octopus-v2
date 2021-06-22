@@ -25,7 +25,7 @@ module.exports = {
       // primary branding colors
       primary: '#9B3CEA',
       gray: {
-        DEFAULT: '#F5F5F5',
+        DEFAULT: '#E7E7E7',
         darken: '#4D4D4D',
       },
     },
