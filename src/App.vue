@@ -16,9 +16,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { initBreakpoints } from './composables/breakpoints';
 
 export default defineComponent({
   name: 'App',
+  setup() {
+    initBreakpoints();
+  },
 });
 </script>
 

@@ -14,14 +14,17 @@
   </div>
   <div v-else>
     <div
-      class="h-16 flex justify-center items-center heading"
+      class="h-14 w-screen flex justify-around items-center bg-gray-darken shadow-md"
       :class="fixed ? 'fixed z-10 w-full bg-dark' : ''"
     >
-      <slot />
-    </div>
-    <div class="absolute bottom-0 left-0 z-50 h-14 w-screen flex justify-around items-center bg-gray-darken">
       <slot name="left" />
       <slot name="right" />
+    </div>
+    <div
+      class="h-16 flex justify-center items-center heading"
+      :class="fixed ? 'pt-20' : ''"
+    >
+      <slot />
     </div>
   </div>
 </template>

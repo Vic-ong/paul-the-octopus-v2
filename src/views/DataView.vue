@@ -7,12 +7,18 @@
       <Header fixed>
         Data
         <template #left>
-          <router-link :to="{ name: 'home' }">
+          <router-link
+            class="text-gray"
+            :to="{ name: 'home' }"
+          >
             Home
           </router-link>
         </template>
         <template #right>
-          <router-link :to="{ name: 'compatibility' }">
+          <router-link
+            class="text-gray"
+            :to="{ name: 'compatibility' }"
+          >
             See Scores
           </router-link>
         </template>

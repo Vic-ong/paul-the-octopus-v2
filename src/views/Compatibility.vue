@@ -7,12 +7,18 @@
       <Header fixed>
         Compatibility Analysis
         <template #left>
-          <router-link :to="{ name: 'home' }">
+          <router-link
+            class="text-gray"
+            :to="{ name: 'home' }"
+          >
             Home
           </router-link>
         </template>
         <template #right>
-          <router-link :to="{ name: 'data' }">
+          <router-link
+            class="text-gray"
+            :to="{ name: 'data' }"
+          >
             See Data
           </router-link>
         </template>
@@ -26,7 +32,10 @@
 
           <div class="text-left">
             We're happy to have you joining this group of wonderful people with diversed skillset! 🎉 Now, let's see who you could team up with within
-            <router-link :to="{ name: 'data' }">
+            <router-link
+              class="text-gray"
+              :to="{ name: 'data' }"
+            >
               this list of users
             </router-link>
             to boost your chances of winning in various situations while leaving room for others to find success too.

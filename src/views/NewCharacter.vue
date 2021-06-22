@@ -3,12 +3,18 @@
     <Header>
       Create your character!
       <template #left>
-        <router-link :to="{ name: 'home' }">
+        <router-link
+          class="sm-below:text-gray"
+          :to="{ name: 'home' }"
+        >
           Home
         </router-link>
       </template>
       <template #right>
-        <router-link :to="{ name: 'data' }">
+        <router-link
+          class="sm-below:text-gray"
+          :to="{ name: 'data' }"
+        >
           See Data
         </router-link>
       </template>
