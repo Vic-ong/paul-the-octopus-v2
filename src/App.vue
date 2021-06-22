@@ -21,3 +21,29 @@ export default defineComponent({
   name: 'App',
 });
 </script>
+
+<style scoped>
+  /* Fade transition */
+  .transition-fade-enter-active, .transition-fade-leave-active {
+    transition: opacity .3s ease;
+  }
+  .transition-fade-enter, .transition-fade-leave-to {
+    opacity: 0;
+  }
+
+  /* Bounce transition */
+  .transition-bounce-enter-active {
+    animation: bounce-in .35s;
+  }
+  .transition-bounce-leave-active {
+    animation: bounce-in .2s reverse;
+  }
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
